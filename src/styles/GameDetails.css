@@ -1,0 +1,54 @@
+.game-details-container {
+  padding: 20px;
+}
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.game-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.game-details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.game-info {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.toggle-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.no-data {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #ffcccc;
+  border: 1px solid #ff0000;
+  color: #ff0000;
+}
