@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MultiPitchView = () => {
+const MultiPitchView = ({selectedPitcher}) => {
   return (
     <div>MultiPitchView</div>
   )

@@ -1,54 +1,84 @@
 .game-details-container {
+  min-width: 800px;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 600px) {
+  .game-details-container {
+    min-width: none;
+  }
 }
 
 .back-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
+  background-color: none;
+  color: black;
   border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
-}
-
-.back-button:hover {
-  background-color: #0056b3;
 }
 
 .game-details {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.game-details h1 {
+.game-title {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.game-info {
-  margin-top: 10px;
+.team-info {
+  margin-bottom: 20px;
+}
+
+.team-names {
   font-size: 18px;
+  font-weight: bold;
+}
+
+.game-date {
+  font-size: 16px;
+  color: #555;
 }
 
 .toggle-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
   border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
   cursor: pointer;
+}
+
+.pitcher-title {
+  font-size: 20px;
   margin-top: 20px;
 }
 
-.toggle-button:hover {
-  background-color: #0056b3;
+.select-pitcher {
+  font-size: 16px;
+  color: #777;
+}
+
+.pitch-view-container {
+  margin-top: 20px;
 }
 
 .no-data {
+  text-align: center;
+  font-size: 18px;
   margin-top: 20px;
-  padding: 10px;
-  background-color: #ffcccc;
-  border: 1px solid #ff0000;
-  color: #ff0000;
+}
+
+.options{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

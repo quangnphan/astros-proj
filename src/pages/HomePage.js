@@ -41,22 +41,32 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="homepage-container">
       <h1>Game List</h1>
       <ul>
         {games ? (
           games.map((game) => (
             <li key={game.game_pk} className="game-list-item">
               <Link to={`/game/${game.game_pk}`} className="game-link">
-                <div className="date">{formatTimestamp(game.pitchesData[0].game_date)}</div>
+                <div className="date">
+                  {formatTimestamp(game.pitchesData[0].game_date)}
+                </div>
                 <div className="teams">
-                  <span className="team-name">
-                    {game.pitchesData[0].away_team_name}
-                  </span>
-                  <span className="vs">vs.</span>
-                  <span className="team-name">
-                    {game.pitchesData[0].home_team_name}
-                  </span>
+                  <div className="team">
+                    <div className="team-label">Away Team:</div>
+                    <div className="team-name">
+                      {game.pitchesData[0].away_team_name}
+                    </div>
+                  </div>
+                  <div className="vs-container">
+                    <span className="vs">vs.</span>
+                  </div>
+                  <div className="team">
+                    <div className="team-label">Home Team:</div>
+                    <div className="team-name">
+                      {game.pitchesData[0].home_team_name}
+                    </div>
+                  </div>
                 </div>
               </Link>
             </li>

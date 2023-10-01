@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
-const SinglePitchView = () => {
+const SinglePitchView = ({ selectedPitcher }) => {
+  useEffect(() => {
+    console.log(selectedPitcher);
+  }, [selectedPitcher]);
   return (
-    <div>SinglePitchView</div>
-  )
-}
+    <div className="single-pitch-view">
+      <h2>Pitch Details</h2>
+    </div>
+  );
+};
 
-export default SinglePitchView
+export default SinglePitchView;
