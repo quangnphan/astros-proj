@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { formatTimestamp } from "../helper/formattedDate";
+import { formatTimestamp } from "../helper/helpFuncs";
 
 const HomePage = () => {
   const [games, setGames] = useState([]);

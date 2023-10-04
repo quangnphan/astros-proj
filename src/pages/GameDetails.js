@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SinglePitchView from "../components/SinglePitchView";
 import MultiPitchView from "../components/MultiPitchView";
-import { formatTimestamp } from "../helper/formattedDate";
+import { formatTimestamp } from "../helper/helpFuncs";
 import "../styles/GameDetails.css";
 
 const GameDetails = () => {
