@@ -13,7 +13,7 @@ const SinglePitchView = ({ selectedPitcher }) => {
     setSelectedPitchType(event.target.value);
   };
 
-  // Calculate average pitch speed
+  // Calculate pitch speed
   const averagePitchSpeed =
     selectedPitcher.pitches
       .filter((pitch) => pitch.pitch_name === selectedPitchType)
@@ -71,15 +71,9 @@ const SinglePitchView = ({ selectedPitcher }) => {
         <div>
           <div className="pitch-type-info">
             {/* <h3>{selectedPitchType}</h3> */}
-            <p>
-              Average Pitch Speed: {averagePitchSpeed.toFixed(2)} MPH
-            </p>
-            <p>
-              Average Plate Speed: {averagePlateSpeed.toFixed(2)} MPH
-            </p>
-            <p>
-              Average Strikezone Top: {averageStrikeZoneTop.toFixed(2)} MPH
-            </p>
+            <p>Average Pitch Speed: {averagePitchSpeed.toFixed(2)} MPH</p>
+            <p>Average Plate Speed: {averagePlateSpeed.toFixed(2)} MPH</p>
+            <p>Average Strikezone Top: {averageStrikeZoneTop.toFixed(2)} MPH</p>
             <p>
               Average Strikezone Bottom: {averageStrikeZoneBottom.toFixed(2)}{" "}
               MPH
@@ -102,7 +96,7 @@ const SinglePitchView = ({ selectedPitcher }) => {
               <tr>
                 <th>#</th>
                 <th>Speed (MPH)</th>
-                <th>Initial Position X (feet)</th>
+                {/* <th>Initial Position X (feet)</th>
                 <th>Initial Position Y (feet)</th>
                 <th>Initial Position Z (feet)</th>
                 <th>Initial Velocity X (feet/s)</th>
@@ -116,7 +110,7 @@ const SinglePitchView = ({ selectedPitcher }) => {
                 <th>Plate Y (feet)</th>
                 <th>Plate Z (feet)</th>
                 <th>Strike Zone Top (feet)</th>
-                <th>Strike Zone Bottom (feet)</th>
+                <th>Strike Zone Bottom (feet)</th> */}
                 <th>Event Type</th>
                 <th>Event Result</th>
                 <th>Batter Name</th>
@@ -129,7 +123,7 @@ const SinglePitchView = ({ selectedPitcher }) => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{parseFloat(pitch.initial_speed).toFixed(2)}</td>
-                    <td>{parseFloat(pitch.init_pos_x).toFixed(2)}</td>
+                    {/* <td>{parseFloat(pitch.init_pos_x).toFixed(2)}</td>
                     <td>{parseFloat(pitch.init_pos_y).toFixed(2)}</td>
                     <td>{parseFloat(pitch.init_pos_z).toFixed(2)}</td>
                     <td>{parseFloat(pitch.init_vel_x).toFixed(2)}</td>
@@ -143,7 +137,7 @@ const SinglePitchView = ({ selectedPitcher }) => {
                     <td>{parseFloat(pitch.plate_y).toFixed(2)}</td>
                     <td>{parseFloat(pitch.plate_z).toFixed(2)}</td>
                     <td>{parseFloat(pitch.sz_top).toFixed(2)}</td>
-                    <td>{parseFloat(pitch.sz_bottom).toFixed(2)}</td>
+                    <td>{parseFloat(pitch.sz_bottom).toFixed(2)}</td> */}
                     <td>{pitch.event_type}</td>
                     <td>{pitch.event_result}</td>
                     <td>{pitch.batter_name}</td>
