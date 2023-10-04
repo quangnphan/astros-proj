@@ -7,11 +7,27 @@
   overflow-x: auto;
 }
 
-.multi-pitch-view h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.filters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pitch-type-filters {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
+
+.pitch-type-filters label {
+  margin-right: 20px;
+}
+
+.chart-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  align-items: flex-start; 
+  justify-content: center; 
+}
+
+
+

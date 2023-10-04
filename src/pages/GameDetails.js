@@ -10,7 +10,6 @@ const GameDetails = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
   const [gameData, setGameData] = useState(null);
-  const [singlePitchView, setSinglePitchView] = useState(true);
   const [pitchersData, setPitchersData] = useState([]);
   const [selectedPitcherName, setSelectedPitcherName] = useState("");
   const [selectedPitcher, setSelectedPitcher] = useState();
@@ -37,10 +36,6 @@ const GameDetails = () => {
     navigate("/");
   };
 
-  const toggleView = () => {
-    setSinglePitchView(!singlePitchView);
-  };
-
   const PitcherDropdown = ({
     pitchersData,
     selectedPitcherName,
@@ -49,9 +44,7 @@ const GameDetails = () => {
     return (
       <select onChange={handlePitcherSelect} value={selectedPitcherName}>
         <option disabled value="">
-          {selectedPitcherName
-            ? "Selected: " + selectedPitcherName
-            : "Select a Pitcher"}
+          {selectedPitcherName ? "Selected: " + selectedPitcherName : "Select"}
         </option>
         {Object.values(pitchersData).map((pitcher) => (
           <option key={pitcher.pitcher_name} value={pitcher.pitcher_name}>
@@ -85,6 +78,7 @@ const GameDetails = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, [gameId]);
 
   useEffect(() => {
@@ -109,7 +103,7 @@ const GameDetails = () => {
   return (
     <div className="game-details-container">
       <button className="back-button" onClick={goBackToGameList}>
-        {'<'} Back to Game List
+        {"<"} Back to Game List
       </button>
       {gameData ? (
         <div className="game-details">
@@ -123,18 +117,13 @@ const GameDetails = () => {
             </p>
           </div>
 
-          <div className="options"> 
-          <button className="toggle-button" onClick={toggleView}>
-            {singlePitchView
-              ? "Switch to Multi Pitch View"
-              : "Switch to Single Pitch View"}
-          </button>
-
-          <PitcherDropdown
-            pitchersData={pitchersData}
-            selectedPitcherName={selectedPitcherName}
-            handlePitcherSelect={handlePitcherSelect}
-          />
+          <div className="options">
+            <h4>Select a pitcher:</h4>
+            <PitcherDropdown
+              pitchersData={pitchersData}
+              selectedPitcherName={selectedPitcherName}
+              handlePitcherSelect={handlePitcherSelect}
+            />
           </div>
 
           {selectedPitcherName ? (
@@ -146,13 +135,7 @@ const GameDetails = () => {
           )}
 
           {selectedPitcher ? (
-            <div className="pitch-view-container">
-              {singlePitchView ? (
-                <SinglePitchView selectedPitcher={selectedPitcher} />
-              ) : (
-                <MultiPitchView selectedPitcher={selectedPitcher} />
-              )}
-            </div>
+            <MultiPitchView selectedPitcher={selectedPitcher} />
           ) : null}
         </div>
       ) : (

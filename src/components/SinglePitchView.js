@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/SinglePitchView.css";
-import PitchSpeedHistogram from "./PitchSpeedDistribution";
+import PitchSpeedHistogram from "./PitchSpeedHistogram";
 
 const SinglePitchView = ({ selectedPitcher }) => {
   const [selectedPitchType, setSelectedPitchType] = useState("");
