@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import SinglePitchView from "../components/SinglePitchView";
 import MultiPitchView from "../components/MultiPitchView";
 import { formatTimestamp } from "../helper/helpFuncs";
 import "../styles/GameDetails.css";

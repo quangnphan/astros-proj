@@ -30,7 +30,6 @@ const HomePage = () => {
       });
 
       setGames(gameList);
-      console.log(gameList);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

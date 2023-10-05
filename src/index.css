@@ -90,7 +90,6 @@ select {
 
 table {
   width: 100%;
-  margin-top: 20px;
   border-collapse: collapse;
   border: 1px solid #ccc;
   overflow-x: scroll;

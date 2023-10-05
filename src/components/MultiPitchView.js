@@ -18,7 +18,6 @@ const MultiPitchView = ({ selectedPitcher }) => {
     const pitchType = event.target.value;
     if (event.target.checked) {
       setSelectedPitchTypes([...selectedPitchTypes, pitchType]);
-      console.log(selectedPitchTypes);
     } else {
       setSelectedPitchTypes(
         selectedPitchTypes.filter((type) => type !== pitchType)
@@ -28,12 +27,14 @@ const MultiPitchView = ({ selectedPitcher }) => {
 
   // Filter the pitch data based on selected types
   const filteredPitchData = selectedPitcher.pitches
-  .filter((pitch) =>
-    selectedPitchTypes.length === 0 || selectedPitchTypes.includes(pitch.pitch_name)
-  )
-  .filter((pitch) =>
-    pitch.event_result.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+    .filter(
+      (pitch) =>
+        selectedPitchTypes.length === 0 ||
+        selectedPitchTypes.includes(pitch.pitch_name)
+    )
+    .filter((pitch) =>
+      pitch.event_result.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
   // Calculate average pitch speed
   const averagePitchSpeed =
@@ -41,6 +42,16 @@ const MultiPitchView = ({ selectedPitcher }) => {
       (total, pitch) => total + parseFloat(pitch.initial_speed),
       0
     ) / filteredPitchData.length;
+
+  const maxSpeed = filteredPitchData.reduce((maxSpeed, pitch) => {
+    const speed = parseFloat(pitch.initial_speed);
+    return speed > maxSpeed ? speed : maxSpeed;
+  }, -Infinity);
+
+  const minSpeed = filteredPitchData.reduce((minSpeed, pitch) => {
+    const speed = parseFloat(pitch.initial_speed);
+    return speed < minSpeed ? speed : minSpeed;
+  }, Infinity);
 
   // Calculate average plate speed
   const averagePlateSpeed =
@@ -72,27 +83,27 @@ const MultiPitchView = ({ selectedPitcher }) => {
     <div className="multi-pitch-view">
       <h2>Pitch Information</h2>
       <div className="filters">
-      <div className="pitch-type-filters">
-        {uniquePitchTypes.map((pitchType, index) => (
-          <label key={index}>
-            <input
-              type="checkbox"
-              value={pitchType}
-              checked={selectedPitchTypes.includes(pitchType)}
-              onChange={handleCheckboxChange}
-            />
-            {pitchType}
-          </label>
-        ))}
-      </div>
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Search by event result"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
+        <div className="pitch-type-filters">
+          {uniquePitchTypes.map((pitchType, index) => (
+            <label key={index}>
+              <input
+                type="checkbox"
+                value={pitchType}
+                checked={selectedPitchTypes.includes(pitchType)}
+                onChange={handleCheckboxChange}
+              />
+              {pitchType}
+            </label>
+          ))}
+        </div>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search by event result"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
       </div>
 
       {filteredPitchData.length > 0 && (
@@ -100,14 +111,27 @@ const MultiPitchView = ({ selectedPitcher }) => {
           <div>
             <div className="pitch-type-info">
               {/* <h3>{selectedPitchType}</h3> */}
-              <p><strong>Average Pitch Speed:</strong> {averagePitchSpeed.toFixed(2)} MPH</p>
-              <p><strong>Average Plate Speed:</strong> {averagePlateSpeed.toFixed(2)} MPH</p>
               <p>
-               <strong>Average Strikezone Top:</strong> {averageStrikeZoneTop.toFixed(2)} MPH
+                <strong>Average Pitch Speed:</strong>{" "}
+                {averagePitchSpeed.toFixed(2)} MPH
               </p>
               <p>
-                <strong>Average Strikezone Bottom:</strong> {averageStrikeZoneBottom.toFixed(2)}{" "}
-                MPH
+                <strong>Max Pitch Speed:</strong> {maxSpeed.toFixed(2)} MPH
+              </p>
+              <p>
+                <strong>Min Pitch Speed:</strong> {minSpeed.toFixed(2)} MPH
+              </p>
+              <p>
+                <strong>Average Plate Speed:</strong>{" "}
+                {averagePlateSpeed.toFixed(2)} MPH
+              </p>
+              <p>
+                <strong>Average Strikezone Top:</strong>{" "}
+                {averageStrikeZoneTop.toFixed(2)} MPH
+              </p>
+              <p>
+                <strong>Average Strikezone Bottom:</strong>{" "}
+                {averageStrikeZoneBottom.toFixed(2)} MPH
               </p>
             </div>
           </div>

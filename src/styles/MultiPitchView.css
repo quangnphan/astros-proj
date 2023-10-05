@@ -13,6 +13,15 @@
   align-items: center;
 }
 
+.pitch-type-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
 .pitch-type-filters {
   margin: 20px 0;
 }
@@ -27,6 +36,12 @@
   gap: 20px; 
   align-items: flex-start; 
   justify-content: center; 
+}
+
+@media(max-width: 768px){
+  .filters{
+    flex-direction: column;
+  }
 }
 
 
