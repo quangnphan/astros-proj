@@ -6,8 +6,8 @@ const PitchSpeedHistogram = ({ pitchData }) => {
 
   const data = [
     {
-      x: speeds,
-      type: "histogram",
+      y: speeds,
+      type: "box",
       marker: {
         color: "blue",
       },
@@ -15,12 +15,9 @@ const PitchSpeedHistogram = ({ pitchData }) => {
   ];
 
   const layout = {
-    title: "Pitch Speed Histogram",
-    xaxis: {
-      title: "Speed (MPH)",
-    },
+    title: "Pitch Speed Box Plot",
     yaxis: {
-      title: "Frequency",
+      title: "Speed (MPH)",
     },
     width: 450,
   };

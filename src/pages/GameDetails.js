@@ -11,7 +11,11 @@ const GameDetails = () => {
   const [gameData, setGameData] = useState(null);
   const [pitchersData, setPitchersData] = useState([]);
   const [selectedPitcherName, setSelectedPitcherName] = useState("");
-  const [selectedPitcher, setSelectedPitcher] = useState();
+  const [selectedPitcher, setSelectedPitcher] = useState(()=>{
+    // Retrieve the selectedPitcher from local storage when the component initializes
+    const storedSelectedPitcher = localStorage.getItem("selectedPitcher");
+    return storedSelectedPitcher ? JSON.parse(storedSelectedPitcher) : null;
+  });
 
   const fetchData = async () => {
     try {
@@ -33,6 +37,8 @@ const GameDetails = () => {
 
   const goBackToGameList = () => {
     navigate("/");
+     // Remove selectedPitcher from local storage
+     localStorage.removeItem("selectedPitcher");
   };
 
   const PitcherDropdown = ({
@@ -70,8 +76,15 @@ const GameDetails = () => {
       }
 
       setSelectedPitcher(selectedPitcherData);
+      // Save selectedPitcher to local storage
+      localStorage.setItem(
+        "selectedPitcher",
+        JSON.stringify(selectedPitcherData)
+      );
     } else {
       setSelectedPitcher(null);
+      // Remove selectedPitcher from local storage
+      localStorage.removeItem("selectedPitcher");
     }
   };
 
@@ -126,9 +139,7 @@ const GameDetails = () => {
           </div>
 
           {selectedPitcherName ? (
-            <h2 className="pitcher-title">
-              Pitch Data for {selectedPitcherName}
-            </h2>
+            null
           ) : (
             <p className="select-pitcher">Please select a Pitcher.</p>
           )}

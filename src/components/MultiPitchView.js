@@ -81,7 +81,7 @@ const MultiPitchView = ({ selectedPitcher }) => {
 
   return (
     <div className="multi-pitch-view">
-      <h2>Pitch Information</h2>
+      <h2>Pitch Information for {selectedPitcher.pitcher_name}</h2>
       <div className="filters">
         <div className="pitch-type-filters">
           {uniquePitchTypes.map((pitchType, index) => (
