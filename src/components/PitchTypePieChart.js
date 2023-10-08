@@ -13,7 +13,6 @@ const PitchTypePieChart = ({ pitchData }) => {
 
   const layout = {
     title: 'Pitch Types Distribution',
-    width: 450,
   };
 
   return (

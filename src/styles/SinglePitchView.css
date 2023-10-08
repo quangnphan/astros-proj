@@ -6,13 +6,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.pitch-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 .pitch-header h2 {
   font-size: 24px;
   margin: 0;
@@ -32,34 +25,53 @@
   background-color: #0056b3;
 }
 
-.pitch-info-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-}
-
-.pitch-image img {
-  max-width: 100%;
-  max-height: 250px;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.pitch-image p {
-  font-size: 18px;
-  font-weight: 700;
-}
-
 .pitch-details table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 20px; /* Add margin to the tables */
 }
 
 .pitch-details td {
   padding: 10px;
   border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.pitch-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+td {
+  padding: 5px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.xyz-tables {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.xyz-tables table {
+  flex: 1;
+  width: 100%;
+}
+
+.xyz-tables table td {
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -73,17 +85,5 @@
 
   .back-button {
     padding: 8px 16px;
-  }
-
-  .pitch-info-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 600px) {
-  .pitch-header {
-    display: block;
   }
 }

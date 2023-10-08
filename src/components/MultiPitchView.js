@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/MultiPitchView.css";
-import PitchSpeedHistogram from "./PitchSpeedHistogram";
+import PitchSpeedLineChart from "./PitchSpeedLineChart";
 import PitchTypePieChart from "./PitchTypePieChart";
 import { Link } from "react-router-dom";
 
@@ -73,6 +73,8 @@ const MultiPitchView = ({ selectedPitcher }) => {
       0
     ) / filteredPitchData.length;
 
+  const totalPitches = () => filteredPitchData.length;
+
   useEffect(() => {
     // Initialize selectedPitchTypes with all unique pitch types
     setSelectedPitchTypes(uniquePitchTypes);
@@ -112,6 +114,10 @@ const MultiPitchView = ({ selectedPitcher }) => {
             <div className="pitch-type-info">
               {/* <h3>{selectedPitchType}</h3> */}
               <p>
+                <strong>Total Pitch Count:</strong>{" "}
+                {totalPitches()} pitches
+              </p>
+              <p>
                 <strong>Average Pitch Speed:</strong>{" "}
                 {averagePitchSpeed.toFixed(2)} MPH
               </p>
@@ -136,7 +142,7 @@ const MultiPitchView = ({ selectedPitcher }) => {
             </div>
           </div>
           <div className="chart-container">
-            <PitchSpeedHistogram pitchData={filteredPitchData} />
+            <PitchSpeedLineChart pitchData={filteredPitchData} />
             <PitchTypePieChart pitchData={filteredPitchData} />
           </div>
         </div>
